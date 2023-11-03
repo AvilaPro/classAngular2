@@ -1,0 +1,96 @@
+<div class="container-fluid" id="container">
+  <div class="row flex-column justify-content-center align-items-center">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <img
+        src="https://eaassets-a.akamaihd.net/resource_signin_ea_com/551.0.20231019.812.f287d63/p/statics/juno/img/EALogo-New.svg"
+        alt="logo">
+      <h3 class="text-white">Inicia sesión en tu Cuenta EA</h3>
+      <div>
+        <!-- Facebook -->
+        <a class="btn text-white" style="background-color: #3b5998;" href="#!" role="button" mdbRipple>
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <!-- Twitter -->
+        <a class="btn text-white" style="background-color: #55acee;" href="#!" role="button" mdbRipple>
+          <i class="fab fa-twitter"></i>
+        </a>
+
+        <!-- Google -->
+        <a class="btn text-white" style="background-color: #dd4b39;" href="#!" role="button" mdbRipple>
+          <i class="fab fa-google"></i>
+        </a>
+
+        <!-- Instagram -->
+        <a class="btn text-white" style="background-color: #ac2bac;" href="#!" role="button" mdbRipple>
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <!-- Linkedin -->
+        <a class="btn text-white" style="background-color: #0082ca;" href="#!" role="button" mdbRipple>
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+
+        <!-- Pinterest -->
+        <a class="btn text-white" style="background-color: #c61118;" href="#!" role="button" mdbRipple>
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </div>
+      <form (submit)="revisarDatos()" class="mt-3" #formularioLogin="ngForm">
+        <!-- Email input -->
+        <mdb-form-control class="mb-4">
+          <input [(ngModel)]="usuarioLogueado.email" name="correo" mdbInput type="email" id="form1Example1"
+            class="form-control" #correo="ngModel" (change)="verInfo('correo', correo, formularioLogin)" required/>
+          <label mdbLabel class="form-label" for="form1Example1">Telefono o correo</label>
+        </mdb-form-control>
+
+        <!-- Cuadros de informacion al usuario -->
+        <div *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+          <div class="bg-danger text-white">
+            El correo es requerido
+          </div>
+        </div>
+
+        <!-- Password input -->
+        <mdb-form-control class="mb-4">
+          <input [(ngModel)]="usuarioLogueado.password" name="password" mdbInput type="password" id="form1Example2"
+            class="form-control" #clave="ngModel" (change)="verInfo('clave', clave, formularioLogin)" required/>
+          <label mdbLabel class="form-label" for="form1Example2">Contraseña</label>
+        </mdb-form-control>
+
+        <!-- Cuadros de informacion al usuario -->
+        <div *ngIf="clave.invalid && (clave.dirty || clave.touched)">
+          <div class="bg-danger text-white">
+            La clave es requerida
+          </div>
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+          <div class="col d-flex justify-content-center">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <input mdbCheckbox class="form-check-input" name="record" type="checkbox" value="" id="form1Example3"
+                checked />
+              <label class="form-check-label" for="form1Example3"> Recordarme </label>
+            </div>
+          </div>
+
+          <div class="col">
+            <!-- Simple link -->
+            <a href="#!">Has olvidado la contraseña?</a>
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <button mdbRipple type="submit" class="btn btn-primary btn-block" [disabled]="!formularioLogin.form.valid">Iniciar Sesion</button>
+
+      </form>
+
+      <h3 class="text-warning">El correo es: {{ correo }}</h3>
+      <hr>
+      <input type="text" [(ngModel)]="algo" name="algo" placeholder="correo">
+      <h3>{{ algo }}</h3>
+    </div>
+  </div>
+</div>
