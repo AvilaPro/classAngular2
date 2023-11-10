@@ -1,0 +1,32 @@
+<h1 class="text-primary">Formulario de registro</h1>
+<div class="container">
+  <div class="row">
+    <form action="" method="get" [formGroup]="registroUsuario" (ngSubmit)="registrar()">
+      <label for="nombre">nombre</label>
+      <input type="text" id="nombre" formControlName="nombre"><br><br>
+      <label for="apellido">apellido</label>
+      <input type="text" id="apellido" formControlName="apellido"><br><br>
+      <label for="correo">correo</label>
+      <input type="email" id="correo" formControlName="correoElectronico"><br><br>
+      <div *ngIf="correoElectronico?.invalid">
+        <p class="text-danger">Correo con formato invalido</p>
+      </div>
+      <label for="contrasena">contrasena</label>
+      <input type="password" id="contrasena" formControlName="contrasena"><br><br>
+      <div formArrayName="preferencias">
+        <h3>Preferencias</h3>
+        <button type="button" (click)="addPreferencia()">Agregue sus preferencias</button>
+        <div *ngFor="let pref of preferencias.controls; let i = index">
+          <label for="pref-{{i}}">Preferencia {{i+1}}: </label>
+          <input id="pref-{{i}}" type="text" [formControlName]="i">
+          <div *ngIf="pref.invalid">
+            <p class="text-danger">El dato es obligatorio</p>
+          </div>
+        </div>
+      </div><br><br>
+
+      <button type="submit" [disabled]="!registroUsuario.valid">Registrase</button>
+    </form>
+  </div>
+</div>
+

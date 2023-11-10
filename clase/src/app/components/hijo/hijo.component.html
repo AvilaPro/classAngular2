@@ -1,0 +1,9 @@
+<h3 class="text-info">Componente hijo</h3>
+<p>Dato recibido desde el padre: <span class="text-decoration-underline fw-bold text-danger">{{infoDesdePadre}}</span></p>
+<div class="container">
+  <div class="row">
+    <label for="infoHijo">Informacion desde el hijo</label>
+    <input type="text" name="" id="infoHijo" [(ngModel)]="infoDesdePadre" (blur)="enviarInfoDesdeHijo()">
+  </div>
+</div>
+

@@ -1,0 +1,13 @@
+<h1 class="text-primary">Componente Padre</h1>
+<div class="container">
+  <div class="row">
+    <label for="info">Informacion desde padre:</label>
+    <input id="info" type="text" [(ngModel)]="info">
+  </div>
+</div>
+<div *ngIf="infoDesdeElHijo != ''">
+  <h2>{{infoDesdeElHijo}}</h2>
+</div>
+<hr>
+<hr>
+<app-hijo [infoDesdePadre]="info" (infoDesdeHijo)="infoDesdeElHijo = $event"></app-hijo>
