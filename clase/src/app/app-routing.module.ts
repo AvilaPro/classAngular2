@@ -4,6 +4,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PadreComponent } from './components/padre/padre.component';
+import { PipeComponent } from './components/pipe/pipe.component';
+import { controlHoraGuard } from './guards/control-hora.guard';
 
 const routes: Routes = [
   {
@@ -21,6 +23,11 @@ const routes: Routes = [
   {
     path: 'padre',
     component: PadreComponent
+  },
+  {
+    path: 'pipe',
+    component: PipeComponent,
+    canActivate: [controlHoraGuard]
   },
   {
     path: '',

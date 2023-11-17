@@ -1,0 +1,11 @@
+<h1>Usando PIPE de Angular</h1>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3 class="text-info fw-bold">El saldo de ejemplo es: {{ saldo | currency: 'EUR': 'code': '1.0-2' }}</h3>
+      <h3 class="text-success">El cumpleanios del profesor Eduardo es: <span class="text-danger">{{ fecha | date: 'dd/MM/yyyy' }}</span>  </h3>
+      <p class="text-secondary">Hora actual: {{ horaActual }}</p>
+    </div>
+  </div>
+</div>

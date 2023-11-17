@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 // importaciones de modulos Angular
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
+import { HttpClientModule } from "@angular/common/http";
 
 //Modulos MDB
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +30,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/register/register.component';
 import { PadreComponent } from './components/padre/padre.component';
 import { HijoComponent } from './components/hijo/hijo.component';
+import { PipeComponent } from './components/pipe/pipe.component';
+
+
+//Servicios
+import { Servi1Service } from './services/servi1.service';
+
 
 @NgModule({
   declarations: [
@@ -39,13 +45,16 @@ import { HijoComponent } from './components/hijo/hijo.component';
     LoginComponent,
     RegisterComponent,
     PadreComponent,
-    HijoComponent
+    HijoComponent,
+    PipeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    //modulos de estilo
     MdbAccordionModule,
     MdbCarouselModule,
     MdbCheckboxModule,
@@ -63,7 +72,7 @@ import { HijoComponent } from './components/hijo/hijo.component';
     MdbValidationModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [Servi1Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
