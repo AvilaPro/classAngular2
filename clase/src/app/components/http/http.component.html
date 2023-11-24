@@ -1,0 +1,37 @@
+<h1>Trabajando con la clase Http Client de Angular</h1>
+<hr>
+<button (click)="pedirPelis()">Cargar Peliculas TOP</button>
+<button (click)="pedirUsuarios()">Pedir Usuarios</button>
+<button (click)="postUsers()">Post a USers</button>
+<button (click)="putUser()">Put a USers</button>
+<button (click)="deleteUser()">Delete a un User</button>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="card col-4" *ngFor="let user of users">
+      <div class="card-body">
+        <h5 class="card-title">{{user.name}}</h5>
+        <p class="card-text">{{user.email}}</p>
+        <button type="button" class="btn btn-primary">{{user.username}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="card col-3" *ngFor="let peli of arrayPelis">
+      <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
+        <img [src]="urlImgs + '/w92' +peli.poster_path" class="img-fluid" width="100%"/>
+        <a href="#!">
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+        </a>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{peli.title}}</h5>
+        <p class="card-text">{{peli.overview}}</p>
+        <a href="#!" class="btn btn-primary">{{peli.release_date | date: "yyyy"}}</a>
+      </div>
+    </div>
+  </div>
+</div>

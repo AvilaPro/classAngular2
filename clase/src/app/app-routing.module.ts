@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { PadreComponent } from './components/padre/padre.component';
 import { PipeComponent } from './components/pipe/pipe.component';
 import { controlHoraGuard } from './guards/control-hora.guard';
+import { HttpComponent } from './components/http/http.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
     path: 'pipe',
     component: PipeComponent,
     canActivate: [controlHoraGuard]
+  },
+  {
+    path: 'http',
+    component: HttpComponent
   },
   {
     path: '',

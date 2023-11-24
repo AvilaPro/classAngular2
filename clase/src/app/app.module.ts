@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 // importaciones de modulos Angular
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 //Modulos MDB
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +35,10 @@ import { PipeComponent } from './components/pipe/pipe.component';
 
 //Servicios
 import { Servi1Service } from './services/servi1.service';
+import { HttpComponent } from './components/http/http.component';
+
+//Interceptors
+import { ErrorRequestInterceptor } from "./interceptors/error-request.interceptor";
 
 
 @NgModule({
@@ -46,7 +50,8 @@ import { Servi1Service } from './services/servi1.service';
     RegisterComponent,
     PadreComponent,
     HijoComponent,
-    PipeComponent
+    PipeComponent,
+    HttpComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +77,13 @@ import { Servi1Service } from './services/servi1.service';
     MdbValidationModule,
     BrowserAnimationsModule
   ],
-  providers: [Servi1Service],
+  providers: [Servi1Service,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorRequestInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
